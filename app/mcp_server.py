@@ -1,21 +1,21 @@
-"""MCP wrapper for ForgingStack Mandate Check, prototype 1.
+"""MCP wrapper client for ForgingStack Mandate Check, v0.2.0.
 
-Why this wrapper exists, and why it came before a live deploy:
-an agent-native service must be usable by agents, not just by humans
+An agent-native service must be usable by agents, not just by humans
 with curl. MCP is the standard interface agents already speak, so the
-wrapper exposes the same REST API as MCP tools, with no duplicated
+wrapper exposes the same live REST API as MCP tools, with no duplicated
 decision logic: every tool call goes through the REST API, so metering
-and receipts stay in one place.
+and receipts stay in one place. The service itself is private; this
+file is only a client.
 
 Protocol: JSON-RPC 2.0 over stdio, no new dependencies (stdlib only).
 Supported methods: initialize, ping, tools/list, tools/call.
 Notifications (no id, e.g. notifications/initialized) get no response.
 
 Environment:
-  FORGINGSTACK_API_BASE  default http://localhost:8000
-  FORGINGSTACK_API_KEY   default demo-key-001 (local prototype only)
+  FORGINGSTACK_API_BASE  default https://forgingstack-mandate-check.jkbattles.workers.dev
+  FORGINGSTACK_API_KEY   required; sign up via POST /v1/signup (key shown once)
 
-Run:  python -m app.mcp_server   (with the REST API running first)
+Run:  python -m app.mcp_server
 """
 
 import json
@@ -89,7 +89,7 @@ def _http(method, path, body=None, idempotency_key=None):
     req.add_header("Content-Type", "application/json")
     # A User-Agent is required: the default Python urllib agent is
     # rejected (Cloudflare 1010) through some egress paths.
-    req.add_header("User-Agent", "ForgingStack-Mandate-Check/0.1.0")
+    req.add_header("User-Agent", "ForgingStack-Mandate-Check/0.2.0")
     if idempotency_key:
         req.add_header("Idempotency-Key", idempotency_key)
     try:
@@ -116,7 +116,7 @@ def handle(msg):
         return {
             "protocolVersion": "2024-11-05",
             "capabilities": {"tools": {}},
-            "serverInfo": {"name": "forgingstack-mandate-check", "version": "0.1.0"},
+            "serverInfo": {"name": "forgingstack-mandate-check", "version": "0.2.0"},
         }
     if method == "ping":
         return {}
