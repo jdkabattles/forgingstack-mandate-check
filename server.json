@@ -1,0 +1,41 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "status": "DRAFT - DO NOT SUBMIT YET. PyPI package is not published yet. Live API and public signup v1 exist; email verification and credit-pack billing are pending."
+    }
+  },
+  "description": "Before your agent acts, check its mandate. One call, one receipt.",
+  "name": "io.github.jdkabattles/forgingstack-mandate-check",
+  "packages": [
+    {
+      "environmentVariables": [
+        {
+          "default": "https://forgingstack-mandate-check.jkbattles.workers.dev",
+          "description": "Mandate Check API base URL. Live default.",
+          "isRequired": false,
+          "name": "FORGINGSTACK_API_BASE"
+        },
+        {
+          "description": "API key for Mandate Check. Sign up via POST /v1/signup (key shown once).",
+          "isRequired": true,
+          "isSecret": true,
+          "name": "FORGINGSTACK_API_KEY"
+        }
+      ],
+      "identifier": "forgingstack-mandate-check",
+      "registryType": "pypi",
+      "runtimeHint": "uvx",
+      "transport": {
+        "type": "stdio"
+      },
+      "version": "0.2.0"
+    }
+  ],
+  "repository": {
+    "source": "github",
+    "url": "https://github.com/jdkabattles/forgingstack-mandate-check"
+  },
+  "title": "ForgingStack Mandate Check",
+  "version": "0.2.0"
+}
