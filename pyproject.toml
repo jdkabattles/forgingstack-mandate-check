@@ -16,8 +16,6 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
 
-[project.urls]
-Homepage = "https://github.com/jdkabattles/forgingstack-mandate-check"
 
 [project.scripts]
 forgingstack-mandate-check = "app.mcp_server:main"
