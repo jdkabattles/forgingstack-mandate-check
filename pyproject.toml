@@ -1,0 +1,22 @@
+# DRAFT packaging for the MCP server only (stdlib, no FastAPI dependency).
+# Do not publish to PyPI until: (1) the GitHub repo exists and is public,
+# (2) the live API endpoint exists (the MCP server calls it over HTTP),
+# (3) the maintainer approves the PyPI name and licence.
+# The REST API itself (app/main.py) is a separate service, not this package.
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "forgingstack-mandate-check"
+version = "0.2.0"
+description = "Before your agent acts, check its mandate. One call, one receipt."
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+forgingstack-mandate-check = "app.mcp_server:main"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
