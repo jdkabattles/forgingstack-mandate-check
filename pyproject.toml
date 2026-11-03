@@ -12,8 +12,12 @@ build-backend = "setuptools.build_meta"
 name = "forgingstack-mandate-check"
 version = "0.2.0"
 description = "Before your agent acts, check its mandate. One call, one receipt."
+readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/jdkabattles/forgingstack-mandate-check"
 
 [project.scripts]
 forgingstack-mandate-check = "app.mcp_server:main"
