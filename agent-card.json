@@ -1,0 +1,58 @@
+{
+  "authentication": {
+    "description": "X-API-Key header. Sign up via POST /v1/signup (key shown once, 100 starter credits). Humans create agent sub-keys via POST /v1/keys.",
+    "schemes": [
+      "api-key"
+    ]
+  },
+  "description": "Before your agent acts, check its mandate. One call, one receipt. Checks agent match, principal match, expiry, and allowed actions, and returns a pass/fail decision plus a hash-chained receipt.",
+  "limits": [
+    "Mandate fit only: agent match, principal match, expiry, allowed actions.",
+    "Not legal advice, not a safety judgement, not a wisdom judgement."
+  ],
+  "name": "ForgingStack Mandate Check",
+  "pricing": {
+    "idempotency_replay": 0,
+    "note": "Failed decisions still cost 1 credit: the check was performed. Idempotent replays are free. Credit-pack billing is not live yet.",
+    "per_check_call": 1,
+    "unit": "credit",
+    "starter_credits": 100
+  },
+  "provider": {
+    "organization": "ForgingStack",
+    "url": "https://forgingstack-site.pages.dev/"
+  },
+  "skills": [
+    {
+      "description": "Check an agent action against its mandate. Returns pass/fail, a reason, and a receipt.",
+      "id": "check_mandate",
+      "input": [
+        "agent_id",
+        "principal",
+        "action",
+        "mandate"
+      ],
+      "name": "Check mandate",
+      "output": [
+        "decision",
+        "reason",
+        "receipt_id",
+        "receipt_hash",
+        "credits_remaining"
+      ]
+    },
+    {
+      "description": "Remaining credit balance for the API key.",
+      "id": "get_credits",
+      "name": "Get credits"
+    },
+    {
+      "description": "A past mandate-check receipt by id.",
+      "id": "get_receipt",
+      "name": "Get receipt"
+    }
+  ],
+  "status": "live, public signup v1, email verification pending, credit-pack billing not live yet",
+  "url": "https://forgingstack-mandate-check.jkbattles.workers.dev",
+  "version": "0.2.0"
+}
