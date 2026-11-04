@@ -2,6 +2,8 @@
 
 Before your agent acts, check its mandate. One call, one receipt.
 
+mcp-name: io.github.jdkabattles/forgingstack-mandate-check
+
 This is the **public client** for Mandate Check. The service itself —
 the decision logic, the receipt chain, the key store, and billing —
 runs on ForgingStack's private service and is **not** in this repo.
