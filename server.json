@@ -24,7 +24,7 @@
       "transport": {
         "type": "stdio"
       },
-      "version": "0.2.0"
+      "version": "0.2.1"
     }
   ],
   "repository": {
@@ -32,5 +32,5 @@
     "url": "https://github.com/jdkabattles/forgingstack-mandate-check"
   },
   "title": "ForgingStack Mandate Check",
-  "version": "0.2.0"
+  "version": "0.2.1"
 }
