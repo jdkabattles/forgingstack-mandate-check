@@ -12,6 +12,7 @@ build-backend = "setuptools.build_meta"
 name = "forgingstack-mandate-check"
 version = "0.2.1"
 description = "Before your agent acts, check its mandate. One call, one receipt."
+license = {text="MIT"}
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
