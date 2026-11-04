@@ -54,5 +54,5 @@
   ],
   "status": "live, public signup v1, email verification pending, credit-pack billing not live yet",
   "url": "https://forgingstack-mandate-check.jkbattles.workers.dev",
-  "version": "0.2.0"
+  "version": "0.2.1"
 }
