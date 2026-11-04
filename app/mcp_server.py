@@ -1,4 +1,4 @@
-"""MCP wrapper client for ForgingStack Mandate Check, v0.2.0.
+"""MCP wrapper client for ForgingStack Mandate Check, v0.2.1.
 
 An agent-native service must be usable by agents, not just by humans
 with curl. MCP is the standard interface agents already speak, so the
@@ -89,7 +89,7 @@ def _http(method, path, body=None, idempotency_key=None):
     req.add_header("Content-Type", "application/json")
     # A User-Agent is required: the default Python urllib agent is
     # rejected (Cloudflare 1010) through some egress paths.
-    req.add_header("User-Agent", "ForgingStack-Mandate-Check/0.2.0")
+    req.add_header("User-Agent", "ForgingStack-Mandate-Check/0.2.1")
     if idempotency_key:
         req.add_header("Idempotency-Key", idempotency_key)
     try:
@@ -116,7 +116,7 @@ def handle(msg):
         return {
             "protocolVersion": "2024-11-05",
             "capabilities": {"tools": {}},
-            "serverInfo": {"name": "forgingstack-mandate-check", "version": "0.2.0"},
+            "serverInfo": {"name": "forgingstack-mandate-check", "version": "0.2.1"},
         }
     if method == "ping":
         return {}
